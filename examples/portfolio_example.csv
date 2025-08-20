@@ -1,0 +1,5 @@
+﻿asset,mv,duration,convexity,spread_dur,bucket
+UST_7y,2000000,6.5,80,0,UST
+IG_Bond_A,1500000,5.8,70,5.8,IG
+IG_Bond_B,1000000,7.2,95,7.2,IG
+HY_Bond_C,800000,4.0,40,4.0,HY
