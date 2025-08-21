@@ -22,6 +22,39 @@ Results include **rates-vs-credit P&L attribution**, **DV01/CS01** exposures, an
 
 ---
 
+## Scenarios
+
+### Synthetic
+
+**Preset shock**
+- **UST:** rates **+150 bp**
+- **IG:**  rates **+150 bp**, spread **+200 bp**
+- **HY:**  rates **+150 bp**, spread **+400 bp**
+
+Customize with CLI flags: `--rates-bp`, `--ig-bp`, `--hy-bp`.
+
+### Historical presets
+
+Presets: `covid2020`, `gfc2008`, `energy2022`
+
+We compute deltas over the chosen date window using the cached series:
+- **Rates:** Δ(UST 10y yield)
+- **Credit:** Δ(US IG OAS) and Δ(US HY OAS)
+
+The loader resamples to **business days** and **forward-fills** to avoid weekend gaps.  
+If your cache doesn’t cover the window, fetch with an earlier `--start`.
+markdown
+
+
+## Outputs
+
+- **Console summary** with bucket aggregation and top losers
+- **CSV files**
+  - `out/stress_detail.csv` — per asset (incl. `pnl_rates`, `pnl_spread`, `dv01`, `cs01`)
+  - `out/stress_agg.csv` — per bucket (sum P&L, attribution, exposures)
+- **Markdown report** — `out/stress_report.md` (uses `tabulate`; falls back to plain text if not installed)
+
+
 ## Quickstart
 
 ```bash
