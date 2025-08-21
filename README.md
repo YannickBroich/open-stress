@@ -4,12 +4,11 @@
 It fetches FRED time series (UST 2y/10y yields and US IG/HY option-adjusted spreads), builds **synthetic** and **historical** scenarios, and estimates portfolio **P&L** using **duration/convexity** (rates) and **spread duration** (credit).  
 Results include **rates-vs-credit P&L attribution**, **DV01/CS01** exposures, and CSV/Markdown reports—**all from a simple CLI**.
 
-> Why this is useful: it’s a clear, reproducible way to show risk intuition (rates vs. credit) with clean code and zero proprietary data.
 
 ---
 
 ## Features
-- **Public data (FRED)** — no API key required; cache saved to `data/`.
+- **Public data (FRED)** — no API key required `data/`.
 - **Scenarios**
   - **Synthetic:** parallel rate shocks + credit widening (per bucket).
   - **Historical presets:** `covid2020`, `gfc2008`, `energy2022` (robust to weekends via business-day resample + forward-fill).
